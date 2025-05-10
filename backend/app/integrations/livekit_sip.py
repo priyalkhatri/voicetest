@@ -145,56 +145,15 @@ class LiveKitSipIntegration:
         logger.info("Setting up WebSocket listener for voice events")
         
         try:
-            # Create an access token with appropriate permissions
-            token = AccessToken(self.config.api_key, self.config.api_secret)
-            token.identity = f"voice-monitor-{int(time.time())}"
-            token.name = "Voice Monitor"
+            # For SIP monitoring, we'll use a simpler approach
+            # The actual voice handling happens in the voice agent worker
+            logger.info("SIP event monitoring will be handled by the voice agent worker")
             
-            # Create grants object with voice-specific permissions
-            grants = VideoGrants()
-            grants.room_join = True
-            grants.room_admin = True
-            grants.room_list = True
-            
-            # Voice-specific permissions
-            grants.can_publish = True        # Allow sending audio
-            grants.can_subscribe = True      # Allow receiving audio
-            grants.can_publish_data = True   # Allow sending data messages
-            
-            # Explicitly set audio-only sources
-            grants.can_publish_sources = ["microphone"]
-            
-            # Build the token properly
-            from datetime import timedelta
-            token = (
-                token
-                .with_grants(grants)
-                .with_ttl(timedelta(hours=6))  # Use timedelta for TTL
-            )
-            
-            # Generate JWT
-            jwt = token.to_jwt()
-            
-            # Clean up URL
-            url = self.config.livekit_url
-            if url.startswith("wss://"):
-                url = url[6:]
-            elif url.startswith("https://"):
-                url = url[8:]
-            
-            # Create WebSocket URL with token
-            ws_url = f"wss://{url}/rtc?access_token={jwt}"
-            
-            # Log a sanitized version (without the full token)
-            sanitized_url = f"wss://{url}/rtc?access_token={jwt[:15]}..."
-            logger.info(f"Starting voice WebSocket listener: {sanitized_url}")
-            
-            # Start WebSocket connection in a separate task
-            self.ws_task = asyncio.create_task(self._websocket_listener(ws_url))
+            # Start a task to periodically check for active calls
+            self.ws_task = asyncio.create_task(self._monitor_sip_events())
             
         except Exception as e:
             logger.error(f"Error setting up voice WebSocket listener: {e}")
-            # For development, use mock listener
             logger.warning("Using mock WebSocket listener for development")
             self.ws_task = asyncio.create_task(self._mock_websocket_listener())
     

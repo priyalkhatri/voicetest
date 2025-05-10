@@ -194,7 +194,11 @@ worker_options = WorkerOptions(
     prewarm_fnc=lambda: logger.info("Voice agent prewarming...")
 )
 
+# Export the worker function for use with LiveKit CLI
+def run_worker():
+    """Run the voice agent worker"""
+    cli.run_app(worker_options)
+
 # For running the agent as a worker
 if __name__ == "__main__":
-    # This would be run as a separate process
-    cli.run_app(worker_options)
+    run_worker()

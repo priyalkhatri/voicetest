@@ -1305,3 +1305,28 @@ client_session: <aiohttp.client.ClientSession object at 0x0000018EF31DA720>
 2025-05-11 01:18:57 [INFO] app.app.main:124 - startup_event: Voice Agent service started successfully
 2025-05-11 01:18:57 [INFO] app.app.main:133 - startup_event: Application startup complete
 2025-05-11 01:18:57 [INFO] app.app.integrations.livekit_sip:271 - _mock_websocket_listener: Mock voice WebSocket listener started
+2025-05-11 01:55:59 [INFO] app:82 - setup_logging: Logging initialized with level: INFO
+2025-05-11 01:55:59 [INFO] app.__main__:22 - <module>: Starting LiveKit Voice Agent Worker...
+2025-05-11 01:55:59 [INFO] app.__main__:23 - <module>: LiveKit URL: telephony-acc-uw6tpf0u.livekit.cloud
+2025-05-11 01:55:59 [INFO] app.__main__:24 - <module>: Business Name: Elegant Touch Salon
+2025-05-11 01:56:00 [WARNING] app.__main__:33 - <module>: Could not import full voice agent: cannot import name 'AssistantOptions' from 'livekit.agents.voice_assistant' (C:\frontdesk\voicetest\backend\venv\Lib\site-packages\livekit\agents\voice_assistant\__init__.py)
+2025-05-11 01:56:00 [INFO] app.app.services.speech_services:64 - _init_providers: Initialized Deepgram for Speech-to-Text
+2025-05-11 01:56:00 [INFO] app.app.services.speech_services:72 - _init_providers: Initialized Neuphonic for Text-to-Speech
+2025-05-11 01:56:01 [INFO] app.app.services.notification_service:33 - __init__: Twilio SMS notifications initialized
+2025-05-11 01:56:01 [INFO] app.config.livekit_config:53 - _load_sip_trunk_config: Loaded SIP trunk config with ID: st_1746861080
+2025-05-11 01:56:01 [INFO] app.__main__:37 - <module>: Using simple voice agent implementation
+2025-05-11 01:56:15 [INFO] app:82 - setup_logging: Logging initialized with level: INFO
+2025-05-11 01:56:15 [INFO] app.__main__:22 - <module>: Starting LiveKit Voice Agent Worker...
+2025-05-11 01:56:15 [INFO] app.__main__:23 - <module>: LiveKit URL: telephony-acc-uw6tpf0u.livekit.cloud
+2025-05-11 01:56:15 [INFO] app.__main__:24 - <module>: Business Name: Elegant Touch Salon
+2025-05-11 01:56:16 [WARNING] app.__main__:33 - <module>: Could not import full voice agent: cannot import name 'AssistantOptions' from 'livekit.agents.voice_assistant' (C:\frontdesk\voicetest\backend\venv\Lib\site-packages\livekit\agents\voice_assistant\__init__.py)
+2025-05-11 01:56:16 [INFO] app.app.services.speech_services:64 - _init_providers: Initialized Deepgram for Speech-to-Text
+2025-05-11 01:56:16 [INFO] app.app.services.speech_services:72 - _init_providers: Initialized Neuphonic for Text-to-Speech
+2025-05-11 01:56:16 [INFO] app.app.services.notification_service:33 - __init__: Twilio SMS notifications initialized
+2025-05-11 01:56:16 [INFO] app.config.livekit_config:53 - _load_sip_trunk_config: Loaded SIP trunk config with ID: st_1746861080
+2025-05-11 01:56:16 [INFO] app.__main__:37 - <module>: Using simple voice agent implementation
+2025-05-11 01:56:16 [INFO] app:82 - setup_logging: Logging initialized with level: INFO
+2025-05-11 01:56:17 [INFO] app.app.services.speech_services:64 - _init_providers: Initialized Deepgram for Speech-to-Text
+2025-05-11 01:56:17 [INFO] app.app.services.speech_services:72 - _init_providers: Initialized Neuphonic for Text-to-Speech
+2025-05-11 01:56:18 [INFO] app.app.services.notification_service:33 - __init__: Twilio SMS notifications initialized
+2025-05-11 01:56:18 [INFO] app.config.livekit_config:53 - _load_sip_trunk_config: Loaded SIP trunk config with ID: st_1746861080
