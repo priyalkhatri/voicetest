@@ -7,17 +7,13 @@ aiofiles==23.2.1
 httpx==0.25.2  # Required for LiveKit API client
 
 # LiveKit dependencies
-livekit==0.18.1  # Latest stable version
-livekit-agents==0.11.3  # Latest compatible agents version
+livekit==0.18.1
+livekit-agents==1.0.20
+livekit-plugins-deepgram==1.0.20
+livekit-plugins-groq==1.0.20
+livekit-plugins-neuphonic==1.0.20
+livekit-plugins-silero==1.0.20
 
-# LLM providers for agents
-livekit-agents-openai==0.2.0
-
-# STT providers for agents
-livekit-agents-deepgram==0.2.2
-
-# TTS providers for agents
-livekit-agents-elevenlabs==0.2.1
 
 websockets==12.0
 

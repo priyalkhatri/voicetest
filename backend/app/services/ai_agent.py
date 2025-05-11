@@ -207,8 +207,9 @@ class AIAgent:
             logger.info(f"SIMULATED RESPONSE TO CALL {call_id}: \"{text}\"")
             return True
         
-        return await self.livekit_sip.send_audio_response(call_id, text)
-    
+        logger.info(f"RESPONSE TO CALL {call_id}: \"{text}\"")
+        return True
+
     async def answer_question(self, question: str) -> Dict[str, Any]:
         """
         Answer a question using knowledge base or salon info
@@ -219,7 +220,7 @@ class AIAgent:
         Returns:
             dict: Response with answer and whether it needed help
         """
-        # Check if we have this in our knowledge base
+        # First check knowledge base for learned answers
         knowledge_match = await self.find_similar_question(question)
         if knowledge_match:
             logger.info(f"Found answer in knowledge base for: {question}")
@@ -228,22 +229,22 @@ class AIAgent:
                 "needs_help": False
             }
         
-        # Try to answer from salon information
+        # Only answer VERY basic questions
         simple_answer = self.check_simple_questions(question)
         if simple_answer:
-            logger.info(f"Answered from salon info: {question}")
+            logger.info(f"Answered basic question: {question}")
             return {
                 "answer": simple_answer,
                 "needs_help": False
             }
         
-        # We don't know the answer
-        logger.info(f"Don't know answer for: {question}")
+        # For everything else, escalate immediately
+        logger.info(f"Escalating to supervisor: {question}")
         return {
             "answer": "Let me check with my supervisor and get back to you.",
             "needs_help": True
         }
-    
+        
     async def find_similar_question(self, question: str) -> Optional[KnowledgeBase]:
         """
         Find a similar question in the knowledge base
@@ -275,63 +276,44 @@ class AIAgent:
     
     def check_simple_questions(self, question: str) -> Optional[str]:
         """
-        Check if a question can be answered from salon basic info
+        ONLY answer very basic salon information.
+        For everything else, escalate to supervisor.
         
         Args:
             question: Question to check
             
         Returns:
-            str: Answer if found, None otherwise
+            str: Answer if it's a very basic question, None otherwise
         """
         question_lower = question.lower()
         
-        # Hours
-        if "hour" in question_lower or "open" in question_lower or "close" in question_lower:
+        # Only answer these specific basic questions:
+        
+        # 1. Hours - ONLY for basic hour inquiries
+        if ("what" in question_lower and "hour" in question_lower) or \
+        ("when" in question_lower and ("open" in question_lower or "close" in question_lower)):
             return f"Our hours are {self.salon_info['hours']}"
         
-        # Location
-        if "location" in question_lower or "address" in question_lower or "where" in question_lower:
+        # 2. Address/Location - ONLY for basic location inquiries
+        if ("where" in question_lower and ("located" in question_lower or "location" in question_lower)) or \
+        ("what" in question_lower and "address" in question_lower):
             return f"We're located at {self.salon_info['address']}"
         
-        # Services
-        if "service" in question_lower or "offer" in question_lower or "provide" in question_lower:
+        # 3. Services - ONLY for general service listing
+        if "what services" in question_lower or "services do you offer" in question_lower:
             return f"We offer {', '.join(self.salon_info['services'])}"
         
-        # Prices
-        if ("price" in question_lower or "cost" in question_lower or 
-            "how much" in question_lower or "fee" in question_lower):
-            
-            if "haircut" in question_lower or "cut" in question_lower:
-                return f"Haircuts cost {self.salon_info['prices']['Haircut']}"
-                
-            if "color" in question_lower:
-                return f"Coloring costs {self.salon_info['prices']['Coloring']}"
-                
-            if "style" in question_lower or "styling" in question_lower:
-                return f"Styling costs {self.salon_info['prices']['Styling']}"
-                
-            if "mani" in question_lower:
-                return f"Manicures cost {self.salon_info['prices']['Manicure']}"
-                
-            if "pedi" in question_lower:
-                return f"Pedicures cost {self.salon_info['prices']['Pedicure']}"
-            
-            # General price question
-            price_list = [f"{service}: {price}" for service, price in self.salon_info['prices'].items()]
-            return f"Our prices are: {', '.join(price_list)}"
+        # For ALL other questions, including:
+        # - Specific prices
+        # - Appointments/booking
+        # - Parking
+        # - Discounts
+        # - Stylists
+        # - Specific service details
+        # - Cancellations/Rescheduling
+        # - Anything else
         
-        # Stylists
-        if "stylist" in question_lower or "staff" in question_lower:
-            return f"Our stylists are {', '.join(self.salon_info['stylists'])}"
-        
-        # Questions we should create help requests for
-        if any(keyword in question_lower for keyword in [
-            "parking", "park", "cancel", "reschedule", "discount", 
-            "special", "deal", "offer", "appointment", "book", "schedule"
-        ]):
-            return None
-        
-        return None
+        return None  # This will trigger supervisor escalation
     
     async def create_help_request(self, question: str, call_id: str, 
                                  customer_id: str, customer_phone: str) -> Optional[HelpRequest]:

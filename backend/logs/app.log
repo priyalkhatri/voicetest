@@ -1330,3 +1330,217 @@ client_session: <aiohttp.client.ClientSession object at 0x0000018EF31DA720>
 2025-05-11 01:56:17 [INFO] app.app.services.speech_services:72 - _init_providers: Initialized Neuphonic for Text-to-Speech
 2025-05-11 01:56:18 [INFO] app.app.services.notification_service:33 - __init__: Twilio SMS notifications initialized
 2025-05-11 01:56:18 [INFO] app.config.livekit_config:53 - _load_sip_trunk_config: Loaded SIP trunk config with ID: st_1746861080
+2025-05-11 02:03:41 [INFO] app:82 - setup_logging: Logging initialized with level: INFO
+2025-05-11 02:03:41 [INFO] app.__main__:22 - <module>: Starting LiveKit Voice Agent Worker...
+2025-05-11 02:03:41 [INFO] app.__main__:23 - <module>: LiveKit URL: telephony-acc-uw6tpf0u.livekit.cloud
+2025-05-11 02:03:41 [INFO] app.__main__:24 - <module>: Business Name: Elegant Touch Salon
+2025-05-11 02:03:42 [WARNING] app.__main__:33 - <module>: Could not import full voice agent: cannot import name 'AssistantOptions' from 'livekit.agents.voice_assistant' (C:\frontdesk\voicetest\backend\venv\Lib\site-packages\livekit\agents\voice_assistant\__init__.py)
+2025-05-11 02:03:42 [INFO] app.app.services.speech_services:64 - _init_providers: Initialized Deepgram for Speech-to-Text
+2025-05-11 02:03:42 [INFO] app.app.services.speech_services:72 - _init_providers: Initialized Neuphonic for Text-to-Speech
+2025-05-11 02:03:42 [INFO] app.app.services.notification_service:33 - __init__: Twilio SMS notifications initialized
+2025-05-11 02:03:42 [INFO] app.config.livekit_config:53 - _load_sip_trunk_config: Loaded SIP trunk config with ID: st_1746861080
+2025-05-11 02:03:42 [INFO] app.__main__:37 - <module>: Using simple voice agent implementation
+2025-05-11 02:03:42 [INFO] app:82 - setup_logging: Logging initialized with level: INFO
+2025-05-11 02:03:43 [INFO] app.app.services.speech_services:64 - _init_providers: Initialized Deepgram for Speech-to-Text
+2025-05-11 02:03:43 [INFO] app.app.services.speech_services:72 - _init_providers: Initialized Neuphonic for Text-to-Speech
+2025-05-11 02:03:43 [INFO] app.app.services.notification_service:33 - __init__: Twilio SMS notifications initialized
+2025-05-11 02:03:43 [INFO] app.config.livekit_config:53 - _load_sip_trunk_config: Loaded SIP trunk config with ID: st_1746861080
+2025-05-11 02:05:35 [INFO] app:82 - setup_logging: Logging initialized with level: INFO
+2025-05-11 02:05:35 [INFO] app.__main__:22 - <module>: Starting LiveKit Voice Agent Worker...
+2025-05-11 02:05:35 [INFO] app.__main__:23 - <module>: LiveKit URL: telephony-k2ukb9dj.livekit.cloud
+2025-05-11 02:05:35 [INFO] app.__main__:24 - <module>: Business Name: Elegant Touch Salon
+2025-05-11 02:05:35 [WARNING] app.__main__:33 - <module>: Could not import full voice agent: cannot import name 'AssistantOptions' from 'livekit.agents.voice_assistant' (C:\frontdesk\voicetest\backend\venv\Lib\site-packages\livekit\agents\voice_assistant\__init__.py)
+2025-05-11 02:05:36 [INFO] app.app.services.speech_services:64 - _init_providers: Initialized Deepgram for Speech-to-Text
+2025-05-11 02:05:36 [INFO] app.app.services.speech_services:72 - _init_providers: Initialized Neuphonic for Text-to-Speech
+2025-05-11 02:05:36 [INFO] app.app.services.notification_service:33 - __init__: Twilio SMS notifications initialized
+2025-05-11 02:05:36 [INFO] app.config.livekit_config:53 - _load_sip_trunk_config: Loaded SIP trunk config with ID: st_1746861080
+2025-05-11 02:05:36 [INFO] app.__main__:37 - <module>: Using simple voice agent implementation
+2025-05-11 02:05:36 [INFO] app:82 - setup_logging: Logging initialized with level: INFO
+2025-05-11 02:05:37 [INFO] app.app.services.speech_services:64 - _init_providers: Initialized Deepgram for Speech-to-Text
+2025-05-11 02:05:37 [INFO] app.app.services.speech_services:72 - _init_providers: Initialized Neuphonic for Text-to-Speech
+2025-05-11 02:05:37 [INFO] app.app.services.notification_service:33 - __init__: Twilio SMS notifications initialized
+2025-05-11 02:05:37 [INFO] app.config.livekit_config:53 - _load_sip_trunk_config: Loaded SIP trunk config with ID: st_1746861080
+2025-05-11 02:09:47 [ERROR] app.__main__:46 - <module>: Worker failed: 
+Traceback (most recent call last):
+  File "C:\frontdesk\voicetest\backend\venv\Lib\site-packages\livekit\agents\utils\aio\duplex_unix.py", line 50, in send_bytes
+    await self._writer.drain()
+  File "C:\Users\priya\anaconda3\Lib\asyncio\streams.py", line 392, in drain
+    await self._protocol._drain_helper()
+  File "C:\Users\priya\anaconda3\Lib\asyncio\streams.py", line 166, in _drain_helper
+    raise ConnectionResetError('Connection lost')
+ConnectionResetError: Connection lost
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\frontdesk\voicetest\backend\venv\Lib\site-packages\livekit\agents\cli\watcher.py", line 90, in run
+    await watchfiles.arun_process(
+  File "C:\frontdesk\voicetest\backend\venv\Lib\site-packages\watchfiles\run.py", line 228, in arun_process
+    await r
+  File "C:\frontdesk\voicetest\backend\venv\Lib\site-packages\livekit\agents\cli\watcher.py", line 108, in _on_reload
+    await channel.asend_message(self._pch, proto.ActiveJobsRequest())
+  File "C:\frontdesk\voicetest\backend\venv\Lib\site-packages\livekit\agents\ipc\channel.py", line 51, in asend_message
+    await dplx.send_bytes(_write_message(msg))
+  File "C:\frontdesk\voicetest\backend\venv\Lib\site-packages\livekit\agents\utils\aio\duplex_unix.py", line 52, in send_bytes
+    raise DuplexClosed()
+livekit.agents.utils.aio.duplex_unix.DuplexClosed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\frontdesk\voicetest\backend\venv\Lib\site-packages\livekit\agents\utils\aio\duplex_unix.py", line 57, in aclose
+    await self._writer.wait_closed()
+  File "C:\Users\priya\anaconda3\Lib\asyncio\streams.py", line 364, in wait_closed
+    await self._protocol._get_close_waiter(self)
+  File "C:\Users\priya\anaconda3\Lib\asyncio\proactor_events.py", line 402, in _loop_writing
+    self._write_fut = self._loop._proactor.send(self._sock, data)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\priya\anaconda3\Lib\asyncio\windows_events.py", line 542, in send
+    ov.WSASend(conn.fileno(), buf, flags)
+ConnectionAbortedError: [WinError 10053] An established connection was aborted by the software in your host machine
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\frontdesk\voicetest\backend\run_agent.py", line 44, in <module>
+    run_worker()
+  File "C:\frontdesk\voicetest\backend\app\agents\voice_agent_simple.py", line 229, in run_worker
+    cli.run_app(worker_options)
+  File "C:\frontdesk\voicetest\backend\venv\Lib\site-packages\livekit\agents\cli\cli.py", line 187, in run_app
+    cli()
+  File "C:\frontdesk\voicetest\backend\venv\Lib\site-packages\click\core.py", line 1161, in __call__
+    return self.main(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\frontdesk\voicetest\backend\venv\Lib\site-packages\click\core.py", line 1082, in main
+    rv = self.invoke(ctx)
+         ^^^^^^^^^^^^^^^^
+  File "C:\frontdesk\voicetest\backend\venv\Lib\site-packages\click\core.py", line 1697, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\frontdesk\voicetest\backend\venv\Lib\site-packages\click\core.py", line 1443, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\frontdesk\voicetest\backend\venv\Lib\site-packages\click\core.py", line 788, in invoke
+    return __callback(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\frontdesk\voicetest\backend\venv\Lib\site-packages\livekit\agents\cli\cli.py", line 108, in dev
+    _run_dev(opts, log_level, url, api_key, api_secret, asyncio_debug, watch)
+  File "C:\frontdesk\voicetest\backend\venv\Lib\site-packages\livekit\agents\cli\cli.py", line 228, in _run_dev
+    asyncio.run(_run_loop())
+  File "C:\Users\priya\anaconda3\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\priya\anaconda3\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\priya\anaconda3\Lib\asyncio\base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "C:\frontdesk\voicetest\backend\venv\Lib\site-packages\livekit\agents\cli\cli.py", line 225, in _run_loop
+    await server.run()
+  File "C:\frontdesk\voicetest\backend\venv\Lib\site-packages\livekit\agents\cli\watcher.py", line 99, in run
+    await self._pch.aclose()
+  File "C:\frontdesk\voicetest\backend\venv\Lib\site-packages\livekit\agents\utils\aio\duplex_unix.py", line 60, in aclose
+    raise DuplexClosed()
+livekit.agents.utils.aio.duplex_unix.DuplexClosed
+2025-05-11 02:09:48 [WARNING] watchfiles.main:344 - stop: process already dead, exit code: 0
+2025-05-11 02:09:48 [INFO] app:82 - setup_logging: Logging initialized with level: INFO
+2025-05-11 02:09:49 [INFO] app.app.services.speech_services:64 - _init_providers: Initialized Deepgram for Speech-to-Text
+2025-05-11 02:09:49 [INFO] app.app.services.speech_services:72 - _init_providers: Initialized Neuphonic for Text-to-Speech
+2025-05-11 02:09:49 [INFO] app.app.services.notification_service:33 - __init__: Twilio SMS notifications initialized
+2025-05-11 02:09:49 [INFO] app.config.livekit_config:53 - _load_sip_trunk_config: Loaded SIP trunk config with ID: st_1746861080
+2025-05-11 02:09:51 [INFO] app:82 - setup_logging: Logging initialized with level: INFO
+2025-05-11 02:09:52 [INFO] app.app.services.speech_services:64 - _init_providers: Initialized Deepgram for Speech-to-Text
+2025-05-11 02:09:52 [INFO] app.app.services.speech_services:72 - _init_providers: Initialized Neuphonic for Text-to-Speech
+2025-05-11 02:09:52 [INFO] app.app.services.notification_service:33 - __init__: Twilio SMS notifications initialized
+2025-05-11 02:09:52 [INFO] app.config.livekit_config:53 - _load_sip_trunk_config: Loaded SIP trunk config with ID: st_1746861080
+2025-05-11 02:09:57 [ERROR] app.__main__:46 - <module>: Worker failed: 
+Traceback (most recent call last):
+  File "C:\frontdesk\voicetest\backend\venv\Lib\site-packages\livekit\agents\cli\watcher.py", line 90, in run
+    await watchfiles.arun_process(
+  File "C:\frontdesk\voicetest\backend\venv\Lib\site-packages\watchfiles\run.py", line 216, in arun_process
+    async for changes in awatch(
+  File "C:\frontdesk\voicetest\backend\venv\Lib\site-packages\watchfiles\main.py", line 254, in awatch
+    async with anyio.create_task_group() as tg:
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\frontdesk\voicetest\backend\venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 776, in __aexit__
+    raise exc_val
+  File "C:\frontdesk\voicetest\backend\venv\Lib\site-packages\watchfiles\main.py", line 256, in awatch
+    raw_changes = await anyio.to_thread.run_sync(watcher.watch, debounce, step, timeout, stop_event_)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\frontdesk\voicetest\backend\venv\Lib\site-packages\anyio\to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\frontdesk\voicetest\backend\venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 2470, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\frontdesk\voicetest\backend\venv\Lib\site-packages\livekit\agents\utils\aio\duplex_unix.py", line 57, in aclose
+    await self._writer.wait_closed()
+  File "C:\Users\priya\anaconda3\Lib\asyncio\streams.py", line 364, in wait_closed
+    await self._protocol._get_close_waiter(self)
+  File "C:\Users\priya\anaconda3\Lib\asyncio\proactor_events.py", line 402, in _loop_writing
+    self._write_fut = self._loop._proactor.send(self._sock, data)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\priya\anaconda3\Lib\asyncio\windows_events.py", line 542, in send
+    ov.WSASend(conn.fileno(), buf, flags)
+ConnectionAbortedError: [WinError 10053] An established connection was aborted by the software in your host machine
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\frontdesk\voicetest\backend\run_agent.py", line 44, in <module>
+    run_worker()
+  File "C:\frontdesk\voicetest\backend\app\agents\voice_agent_simple.py", line 229, in run_worker
+    cli.run_app(worker_options)
+  File "C:\frontdesk\voicetest\backend\venv\Lib\site-packages\livekit\agents\cli\cli.py", line 187, in run_app
+    cli()
+  File "C:\frontdesk\voicetest\backend\venv\Lib\site-packages\click\core.py", line 1161, in __call__
+    return self.main(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\frontdesk\voicetest\backend\venv\Lib\site-packages\click\core.py", line 1082, in main
+    rv = self.invoke(ctx)
+         ^^^^^^^^^^^^^^^^
+  File "C:\frontdesk\voicetest\backend\venv\Lib\site-packages\click\core.py", line 1697, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\frontdesk\voicetest\backend\venv\Lib\site-packages\click\core.py", line 1443, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\frontdesk\voicetest\backend\venv\Lib\site-packages\click\core.py", line 788, in invoke
+    return __callback(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\frontdesk\voicetest\backend\venv\Lib\site-packages\livekit\agents\cli\cli.py", line 108, in dev
+    _run_dev(opts, log_level, url, api_key, api_secret, asyncio_debug, watch)
+  File "C:\frontdesk\voicetest\backend\venv\Lib\site-packages\livekit\agents\cli\cli.py", line 228, in _run_dev
+    asyncio.run(_run_loop())
+  File "C:\Users\priya\anaconda3\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\priya\anaconda3\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\priya\anaconda3\Lib\asyncio\base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "C:\frontdesk\voicetest\backend\venv\Lib\site-packages\livekit\agents\cli\cli.py", line 225, in _run_loop
+    await server.run()
+  File "C:\frontdesk\voicetest\backend\venv\Lib\site-packages\livekit\agents\cli\watcher.py", line 99, in run
+    await self._pch.aclose()
+  File "C:\frontdesk\voicetest\backend\venv\Lib\site-packages\livekit\agents\utils\aio\duplex_unix.py", line 60, in aclose
+    raise DuplexClosed()
+livekit.agents.utils.aio.duplex_unix.DuplexClosed
+2025-05-11 14:23:57 [INFO] app:82 - setup_logging: Logging initialized with level: INFO
+2025-05-11 14:23:57 [INFO] app.__main__:22 - <module>: Starting Voice Agent Worker...
+2025-05-11 14:23:57 [INFO] app.__main__:23 - <module>: Using Deepgram STT (nova-3, multi-language)
+2025-05-11 14:23:57 [INFO] app.__main__:24 - <module>: Using Groq LLM (llama3-8b-8192)
+2025-05-11 14:23:57 [INFO] app.__main__:25 - <module>: Using Neuphonic TTS
+2025-05-11 14:23:57 [INFO] app.app.agents.voice_agent:203 - run_worker: Starting voice agent worker with Deepgram/Groq/Neuphonic...
+2025-05-11 14:23:57 [INFO] app.app.agents.voice_agent:204 - run_worker: LiveKit URL: telephony-k2ukb9dj.livekit.cloud
+2025-05-11 14:23:57 [INFO] app.app.agents.voice_agent:205 - run_worker: Business Name: Elegant Touch Salon
+2025-05-11 14:23:57 [INFO] app.app.agents.voice_agent:206 - run_worker: STT Provider: deepgram  # Options: deepgram, assemblyai, google
+2025-05-11 14:23:57 [INFO] app.app.agents.voice_agent:207 - run_worker: TTS Provider: assemblyai  # Options: neuphonic, elevenlabs, google

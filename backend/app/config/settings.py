@@ -49,6 +49,8 @@ NEUPHONIC_API_KEY = os.getenv("NEUPHONIC_API_KEY", "")
 ELEVENLABS_API_KEY = os.getenv("ELEVENLABS_API_KEY", "")
 TTS_VOICE_ID = os.getenv("TTS_VOICE_ID", "")  # Voice ID for TTS providers
 
+LLM_API_KEY = os.getenv("GROQ_API_KEY", "")
+
 # Common speech settings
 SPEECH_RECOGNITION_LANGUAGE = os.getenv("SPEECH_RECOGNITION_LANGUAGE", "en-US")
 SPEECH_MODEL = os.getenv("SPEECH_MODEL", "nova-2")  # For Deepgram
